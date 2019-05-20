@@ -1,14 +1,15 @@
 import React from 'react';
-import STORE from './store';
 
-function Cards (props) {
-  console.log(props.store.allCards);
-  return (
-    <div>
+function Card (props) {
+  
 
-      <button>Delete</button>
-    </div>
-  );
-}
+    return (
+      <div className='Card'>
+        <button type="button">delete</button>
+        <h3>{props.title}</h3>
+        <p>{props.content}</p>
+      </div>
+    )
+  }
 
-export default Cards;
+export default Card;

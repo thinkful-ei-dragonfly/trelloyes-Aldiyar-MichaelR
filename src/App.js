@@ -1,9 +1,20 @@
 import React from 'react';
+import List from './List';
 
 function App(props) {
+  const array = props.store.lists;
+  console.log(array)
   return (
     <main className='App'>
-      {/* content goes here */}
+      {array.map(list => (
+        <List 
+        key={list.id}
+        header={list.header}
+        cards={list.cardIds.map(id => (
+          props.store.allCards[id]
+        ))}
+        />
+      ) )}
     </main>
   );
 }
