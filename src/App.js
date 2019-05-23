@@ -82,22 +82,22 @@ class App extends React.Component {
   addItem = (listId) => {
     console.log('add')
     console.log(listId);
+    
     let newCard = this.newRandomCard();
-    let newObj = this.state.allCards;
-    newObj[newCard.id] = newCard;
-    console.log(newObj);
-    let index;
-    this.state.lists.map((list, i) => {
+    const newLists = this.state.lists.map(list => {
       if (list.id === listId) {
-        index = i;
+        return {
+          ...list, 
+          cardIds: [...list.cardIds, newCard.id]
+        }
       }
-    });
-    let newLists = this.state.lists;
-    // newLists[index].
-    this.setState({
-      allCards: newObj
-
+      return list;
     })
+    console.log(this.state);
+    // this.setState({
+    //   allCards: [...this.state.allCards, [newCard.id]:newCard],
+    //   lists: newLists
+    // })
   }
   
   
