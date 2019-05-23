@@ -5,8 +5,10 @@ function Card (props) {
   
 
     return (
-      <div className='Card'>
-        <button type="button">delete</button>
+      <div className='card'>
+        <button type="button" onClick={() =>{
+          props.onDeleteItem(props.index)
+        }}>delete</button>
         <h3>{props.title}</h3>
         <p>{props.content}</p>
       </div>
