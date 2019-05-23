@@ -5,9 +5,9 @@ function Card (props) {
   
 
     return (
-      <div className='card'>
+      <div className='Card'>
         <button type="button" onClick={() =>{
-          props.onDeleteItem(props.index)
+          props.onDeleteItem(props.cardKey)
         }}>delete</button>
         <h3>{props.title}</h3>
         <p>{props.content}</p>

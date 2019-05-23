@@ -8,6 +8,10 @@ import './List.css';
 
 function List (props) {
   const cards = props.cards
+  let cardComponents = cards.map((card,index) => {
+    // console.log(card);
+    return <Card key={index} cardKey={card.cardKey} title={card.card.title} content={card.card.content} onDeleteItem = {props.onDeleteItem} />
+  });
   return (
     <section className="List">
     <header className="List-header">
@@ -15,10 +19,10 @@ function List (props) {
     </header>
     <div className="List-cards">
       {cards.map((card,index) => (
-        <Card key={index} title={card.title} content={card.content} onDeleteItem = {props.onDeleteItem} />
+        <Card key={index} cardKey={card.cardKey} title={card.card.title} content={card.card.content} onDeleteItem = {props.onDeleteItem} />
       ))}
       <button type="button" className="List-add-button" onClick={() =>{
-        props.onAddItem()}
+        props.onAddItem(props.listId)}
       }>
         + Add Random Card
       </button>
